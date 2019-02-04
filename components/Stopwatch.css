@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  --spacing: 0.5em;
+  display: grid;
+  padding: var(--spacing);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: var(--spacing);
+  width: 12em;
+  height: 15em;
+  color: white;
+  background: black
+    linear-gradient(
+      -237deg,
+      hsla(0, 0%, 100%, 0),
+      hsla(0, 0%, 100%, 0) 35%,
+      hsla(0, 0%, 100%, 0.2) 35%,
+      hsla(0, 0%, 100%, 0)
+    );
+  border: calc(var(--spacing) / 2) solid black;
+  border-radius: var(--spacing);
+  font-family: Helvetica, sans-serif;
+}
+
+.display {
+  --multiplier: 2.5;
+  grid-area: 1 / span 2;
+  padding: calc(var(--spacing) / var(--multiplier)) 0;
+  font-size: calc(var(--multiplier) * 1em);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-weight: lighter;
+  transition: font-size 0.1s ease-out;
+  letter-spacing: -0.1em;
+  font-family: "Droid Sans Mono for Powerline", sans-serif;
+}
+
+.has-laps .display {
+  --multiplier: 1.5;
+}
+
+button {
+  font-size: 1em;
+  padding: var(--spacing);
+  grid-row: 3;
+  border: 0;
+  border-radius: calc(var(--spacing) / 2);
+}
+
+.start {
+  background: lawngreen;
+}
+
+.stop {
+  background-color: crimson;
+}
+
+.reset,
+.lap {
+  background-color: hsl(0, 0%, 50%);
+  color: hsl(0, 0%, 86%);
+}
+
+button:disabled {
+  color: hsl(0, 0%, 60%);
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.laps {
+  grid-column: span 2;
+  overflow: auto;
+  font-weight: lighter;
+}
+
+.lap__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  margin-bottom: var(--spacing);
+  border-top: 1px solid hsla(0, 0%, 66%, 0.3);
+  padding-top: var(--spacing);
+  animation: slideInAllRows 0.2s ease-out;
+}
+
+.lap__row:first-child {
+  border-top: none;
+  overflow: hidden;
+  animation: none;
+}
+
+.lap__row:first-child > * {
+  animation: slideInFirstLapRow 0.2s ease-out;
+}
+
+@keyframes slideInFirstLapRow {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInAllRows {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.lap__row--fastest .lap__time::before,
+.lap__row--slowest .lap__time::before {
+  content: " ";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  overflow: hidden;
+  background-color: lawngreen;
+}
+
+.lap__row--slowest .lap__time::before {
+  background-color: crimson;
+}
+
+.lap__number {
+  color: darkgray;
+}
+
+.lap__time {
+  display: flex;
+  align-items: center;
+}

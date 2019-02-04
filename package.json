@@ -1,0 +1,16 @@
+{
+  "name": "stopwatch",
+  "version": "1.0.0",
+  "description": "A simple stopwatch implementation with web components",
+  "module": "components/Stopwatch.js",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.16.3"
+  },
+  "keywords": [
+    "stopwatch",
+    "web components"
+  ],
+  "author": "Kevin Nagurski <knagurski@gmail.com>",
+  "license": "MIT"
+}
