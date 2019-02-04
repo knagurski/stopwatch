@@ -34,8 +34,8 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   font-weight: lighter;
   transition: font-size 0.1s ease-out;
-  letter-spacing: -0.1em;
-  font-family: "Droid Sans Mono for Powerline", sans-serif;
+  letter-spacing: -0.05em;
+  font-family: sans-serif;
 }
 
 .has-laps .display {
@@ -69,7 +69,7 @@ button:disabled {
 }
 
 button:active {
-  transform: scale(.95);
+  transform: scale(0.95);
 }
 
 .laps {
