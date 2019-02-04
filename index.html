@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Stopwatch</title>
     <script type="module" src="components/Stopwatch.js"></script>
     <style>
@@ -20,13 +21,19 @@
         justify-content: center;
       }
 
-      body > * {
-        margin: 1em;
+      stop-watch {
+        filter: drop-shadow(0 0.5em 0.5em rgba(0, 0, 0, 0.3))
+          drop-shadow(-0.1em 0.2em 0.1em rgba(0, 0, 0, 0.4));
+      }
+
+      @media (max-width: 400px) {
+        stop-watch {
+          font-size: 1.6em;
+        }
       }
     </style>
   </head>
   <body>
-    <stop-watch></stop-watch>
     <stop-watch></stop-watch>
   </body>
 </html>
